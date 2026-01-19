@@ -1,0 +1,24 @@
+metadata: 
+  uid: example_experiment_2
+  name: Example Experiment
+  description: An example experiment configuration
+
+steps:
+  - metadata:
+      uid: step1
+      name: Step 1
+      description: First step of the experiment
+    class: Wait
+    duration: 5
+  - metadata:
+      uid: step2
+      name: Step 2
+      description: Second step of the experiment
+    class: Wait
+    duration: 10
+  - metadata:
+      uid: step3
+      name: Step 3
+      description: Third step of the experiment
+    class: Wait
+    duration: 15
