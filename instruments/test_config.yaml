@@ -1,5 +1,5 @@
 name: test_config
-description: A test configuration file
+description: A test configuration file.
 
 physical_instruments:
   - uid: test_1
@@ -10,19 +10,129 @@ physical_instruments:
     class: epcomms.equipment.test.TestInstrument
 
 translators:
-  - metadata:
+  - class: PollingTranslator
+    metadata:
       uid: test_instrument_1_poller
       name: Test Instrument 1 Poller
       description: Poller for Test Instrument 1
-    class: PollingTranslator
     physical_instrument_uid: test_1
-    polling_interval: 5.0
     getter_function: get_noise
+    polling_interval: 1
     entities:
       - setter_function: echo
         virtual_instrument:
-          uid: test_vi_1
+          uid: test_virtual_instrument_1
           name: Test Virtual Instrument 1
-          unit: None
-          description: Noise 
+          unit: mA
+          description: A virtual instrument for testing
+  
+  - class: PollingTranslator
+    metadata:
+      uid: test_instrument_2_poller
+      name: Test Instrument 2 Poller
+      description: Poller for Test Instrument 2
+    physical_instrument_uid: test_2
+    getter_function: get_noise
+    polling_interval: 2
+    entities:
+      - setter_function: echo
+        virtual_instrument:
+          uid: test_virtual_instrument_2
+          name: Test Virtual Instrument 2
+          unit: uK
+          description: A virtual instrument for testing
 
+  - class: PollingTranslator
+    metadata:
+      uid: test_instrument_2_poller_2
+      name: Test Instrument 2 Poller No. 2
+      description: Second Poller for Test Instrument 2
+    physical_instrument_uid: test_2
+    getter_function: get_custom_noise
+    getter_arguments:
+      mean: 10
+      std: 5
+    polling_interval: 1.5
+    entities:
+      - setter_function: echo
+        virtual_instrument:
+          uid: test_virtual_instrument_3
+          name: Test Virtual Instrument 3
+          unit: mA
+          description: A virtual instrument for testing
+
+  - class: PollingTranslator
+    metadata:
+      uid: test_instrument_2_poller_3
+      name: Test Instrument 2 Poller No. 2
+      description: Second Poller for Test Instrument 2
+    physical_instrument_uid: test_2
+    getter_function: get_custom_noise
+    getter_arguments:
+      mean: 10
+      std: 5
+    polling_interval: 1.5
+    entities:
+      - setter_function: echo
+        virtual_instrument:
+          uid: test_virtual_instrument_4
+          name: Test Virtual Instrument 4
+          unit: mA
+          description: A virtual instrument for testing
+
+  - class: PollingTranslator
+    metadata:
+      uid: test_instrument_2_poller_4
+      name: Test Instrument 2 Poller No. 2
+      description: Second Poller for Test Instrument 2
+    physical_instrument_uid: test_2
+    getter_function: get_custom_noise
+    getter_arguments:
+      mean: 10
+      std: 5
+    polling_interval: 1.5
+    entities:
+      - setter_function: echo
+        virtual_instrument:
+          uid: test_virtual_instrument_5
+          name: Test Virtual Instrument 5
+          unit: mA
+          description: A virtual instrument for testing
+
+  - class: PollingTranslator
+    metadata:
+      uid: test_instrument_2_poller_5
+      name: Test Instrument 2 Poller No. 2
+      description: Second Poller for Test Instrument 2
+    physical_instrument_uid: test_2
+    getter_function: get_custom_noise
+    getter_arguments:
+      mean: 10
+      std: 5
+    polling_interval: 1.5
+    entities:
+      - setter_function: echo
+        virtual_instrument:
+          uid: test_virtual_instrument_6
+          name: Test Virtual Instrument 6
+          unit: mA
+          description: A virtual instrument for testing
+
+  - class: PollingTranslator
+    metadata:
+      uid: test_instrument_2_poller_6
+      name: Test Instrument 2 Poller No. 2
+      description: Second Poller for Test Instrument 2
+    physical_instrument_uid: test_2
+    getter_function: get_custom_noise
+    getter_arguments:
+      mean: 10
+      std: 5
+    polling_interval: 1.5
+    entities:
+      - setter_function: echo
+        virtual_instrument:
+          uid: test_virtual_instrument_7
+          name: Test Virtual Instrument 7
+          unit: mA
+          description: A virtual instrument for testing
