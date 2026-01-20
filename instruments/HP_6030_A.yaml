@@ -4,7 +4,7 @@ description: Hewlett-Packard 6030A Power Supply
 physical_instruments:
  - uid: hp_6030_a_physical
    name: HP 6030A Power Supply
-   class: epcomms.equipment.powersupply.HP6030A
+   class: epcomms.equipment.powersupply.hp_6030a.HP6030A
    arguments:
     resource_name: "USB0::1003::8293::HEWLETT-PACKARD_6030A_0_sA.00.05pA.01.01::0::INSTR"
 
