@@ -5,7 +5,8 @@ physical_instruments:
   - uid: inficon_bgp400_physical
     name: Inficon BGP400 Vacuum Gauge
     class: epcomms.equipment.vacuumcontroller.InficonBGP400
-
+    arguments:
+      device_location: "/dev/ttyUSB0"
 translators:
   - metadata:
       uid: inficon_bgp400_translator
