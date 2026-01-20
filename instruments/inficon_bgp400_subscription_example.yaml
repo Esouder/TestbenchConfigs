@@ -1,0 +1,74 @@
+name: inficon_bgp400_subscription_example
+description: Subscription Translator Configuration for InficonBGP400 Vacuum Gauge. Subscribes to real-time updates and maps state to virtual instruments.
+
+physical_instruments:
+  - uid: inficon_bgp400_physical
+    name: Inficon BGP400 Vacuum Gauge
+    class: epcomms.equipment.vacuumcontroller.InficonBGP400
+
+translators:
+  - metadata:
+      uid: inficon_bgp400_translator
+      name: Inficon BGP400 Subscription Translator
+      description: Subscribes to InficonBGP400 vacuum gauge updates and maps state to virtual instruments
+    class: SubscriptionTranslator
+    physical_instrument_uid: inficon_bgp400_physical
+    subscribe_function: register_subscriber
+    entities:
+      - extractor_field: pressure
+        virtual_instrument:
+          uid: inficon_bgp400_pressure
+          name: Vacuum Pressure
+          unit: Pa
+          description: Pressure reading from Inficon BGP400 vacuum gauge
+        setter_function: null
+        setter_arguments: {}
+      - extractor_field: emission
+        virtual_instrument:
+          uid: inficon_bgp400_emission
+          name: Emission Status
+          unit: null
+          description: Emission current status (Off, 25 uA, 5 mA, Degas)
+        setter_function: null
+        setter_arguments: {}
+      - extractor_field: unit
+        virtual_instrument:
+          uid: inficon_bgp400_unit
+          name: Pressure Unit
+          unit: null
+          description: Pressure measurement unit (mbar, Torr, Pa)
+        setter_function: null
+        setter_arguments: {}
+      - extractor_field: software_version
+        virtual_instrument:
+          uid: inficon_bgp400_software_version
+          name: Software Version
+          unit: null
+          description: Gauge software version
+        setter_function: null
+        setter_arguments: {}
+      - extractor_field: error_msg
+        virtual_instrument:
+          uid: inficon_bgp400_error
+          name: Error Message
+          unit: null
+          description: Error status from gauge
+        setter_function: null
+        setter_arguments: {}
+      - extractor_field: toggle_bit
+        virtual_instrument:
+          uid: inficon_bgp400_toggle_bit
+          name: Toggle Bit
+          unit: null
+          description: Toggle bit indicator for state sequencing
+        setter_function: null
+        setter_arguments: {}
+      - extractor_field: adjustment
+        virtual_instrument:
+          uid: inficon_bgp400_adjustment
+          name: Adjustment Status
+          unit: null
+          description: 1000 mbar adjustment status
+        setter_function: null
+        setter_arguments: {}
+

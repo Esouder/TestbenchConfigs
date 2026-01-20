@@ -1,0 +1,4 @@
+working_directory: /app/reports
+publishers:
+  LocalArchivePublisher:
+    storage_path: /app/reports/archive
