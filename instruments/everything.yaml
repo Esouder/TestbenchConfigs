@@ -7,11 +7,11 @@ physical_instruments:
     class: epcomms.equipment.powersupply.HP6030A
     arguments:
       resource_name: "USB0::1003::8293::HEWLETT-PACKARD_6030A_0_sA.00.05pA.01.01::0::INSTR"
-  - uid: keysight_edu_36311a_physical
-    name: Keysight EDU36311A Power Supply
-    class: epcomms.equipment.powersupply.KeysightEDU36311A
-    arguments:
-      resource_name: "USB0::10893::36609::CN63070208::0::INSTR"
+  # - uid: keysight_edu_36311a_physical
+  #   name: Keysight EDU36311A Power Supply
+  #   class: epcomms.equipment.powersupply.KeysightEDU36311A
+  #   arguments:
+  #     resource_name: "USB0::10893::36609::CN63070208::0::INSTR"
   # - uid: alicat_eip_physical
   #   name: Alicat EIP Mass Flow Controller
   #   class: epcomms.equipment.flowcontroller.AlicatEIP
@@ -66,31 +66,31 @@ translators:
           name: Output Current
           unit: A
           description: Measured output current of the HP 6030A Power Supply
-  - metadata:
-      uid: keysight_edu_36311a_voltage_translator
-      name: Keysight EDU36311A Voltage Translator
-      description: Translator for Keysight EDU36311A Power Supply
-    class: PollingTranslator
-    physical_instrument_uid: keysight_edu_36311a_physical
-    getter_function: measure_voltage
-    getter_arguments:
-      channel: [1,2,3]
-    entities:
-      - virtual_instrument:
-          uid: keysight_edu_36311a_voltage
-          name: Channel 1Output Voltage
-          unit: V
-          description: Measured output voltage of the Keysight EDU36311A Power Supply Channel 1
-      - virtual_instrument:
-          uid: keysight_edu_36311a_voltage_2
-          name: Channel 2 Output Voltage
-          unit: V
-          description: Measured output voltage of the Keysight EDU36311A Power Supply Channel 2
-      - virtual_instrument:
-          uid: keysight_edu_36311a_voltage_3
-          name: Channel 3 Output Voltage
-          unit: V
-          description: Measured output voltage of the Keysight EDU36311A Power Supply Channel 3
+  # - metadata:
+  #     uid: keysight_edu_36311a_voltage_translator
+  #     name: Keysight EDU36311A Voltage Translator
+  #     description: Translator for Keysight EDU36311A Power Supply
+  #   class: PollingTranslator
+  #   physical_instrument_uid: keysight_edu_36311a_physical
+  #   getter_function: measure_voltage
+  #   getter_arguments:
+  #     channel: [1,2,3]
+  #   entities:
+  #     - virtual_instrument:
+  #         uid: keysight_edu_36311a_voltage
+  #         name: Channel 1Output Voltage
+  #         unit: V
+  #         description: Measured output voltage of the Keysight EDU36311A Power Supply Channel 1
+  #     - virtual_instrument:
+  #         uid: keysight_edu_36311a_voltage_2
+  #         name: Channel 2 Output Voltage
+  #         unit: V
+  #         description: Measured output voltage of the Keysight EDU36311A Power Supply Channel 2
+  #     - virtual_instrument:
+  #         uid: keysight_edu_36311a_voltage_3
+  #         name: Channel 3 Output Voltage
+  #         unit: V
+  #         description: Measured output voltage of the Keysight EDU36311A Power Supply Channel 3
   # - metadata:
   #     uid: flow_controller_translator
   #     name: Flow Controller Translator
