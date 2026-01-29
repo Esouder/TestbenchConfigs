@@ -150,7 +150,7 @@ translators:
       description: Translator for Terranova 962A Vacuum Controller
     class: PollingTranslator
     physical_instrument_uid: terranova_962a
-    getter_function: get_pressure_gauge_1
+    getter_function: get_pressure_gauge_2
     entities:
       - virtual_instrument:
           uid: terranova_962a_pressure
