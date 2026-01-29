@@ -33,11 +33,11 @@ physical_instruments:
     arguments:
       host: "192.168.0.136"
       port: 3490
-  # - uid: terranova_962a
-  #   name: Terranova 962A Vacuum Controller
-  #   class: epcomms.equipment.vacuumcontroller.Terranova962A
-  #   arguments:
-  #     device_location: "/dev/ttyUSB1"
+  - uid: terranova_962a
+    name: Terranova 962A Vacuum Controller
+    class: epcomms.equipment.vacuumcontroller.Terranova962A
+    arguments:
+      device_location: "/dev/ttyUSB1"
 
 translators:
   - metadata:
@@ -144,16 +144,16 @@ translators:
           name: Measured Voltage  
           unit: VDC
           description: Measured voltage by the Tektronix 4050 DMM
-  # - metadata:
-  #     uid: terranova_962a_pressure_translator
-  #     name: Terranova 962A Pressure Translator
-  #     description: Translator for Terranova 962A Vacuum Controller
-  #   class: PollingTranslator
-  #   physical_instrument_uid: terranova_962a
-  #   getter_function: get_pressure_gauge_1
-  #   entities:
-  #     - virtual_instrument:
-  #         uid: terranova_962a_pressure
-  #         name: Measured Pressure
-  #         unit: Torr
-  #         description: Measured pressure by the Terranova 962A Vacuum Controller
+  - metadata:
+      uid: terranova_962a_pressure_translator
+      name: Terranova 962A Pressure Translator
+      description: Translator for Terranova 962A Vacuum Controller
+    class: PollingTranslator
+    physical_instrument_uid: terranova_962a
+    getter_function: get_pressure_gauge_1
+    entities:
+      - virtual_instrument:
+          uid: terranova_962a_pressure
+          name: Measured Pressure
+          unit: Torr
+          description: Measured pressure by the Terranova 962A Vacuum Controller
