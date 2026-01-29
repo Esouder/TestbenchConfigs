@@ -27,12 +27,12 @@ physical_instruments:
     class: epcomms.equipment.multimeter.KeysightEDU34450A
     arguments:
       resource_name: "USB0::10893::36353::CN62350039::0::INSTR"
-  # - uid: tektronix_4050
-  #   name: Tektronix 4050 DMM
-  #   class: epcomms.equipment.multimeter.TektronixDMM4050
-  #   arguments:
-  #     host: "192.168.0.136"
-  #     port: 3490
+  - uid: tektronix_4050
+    name: Tektronix 4050 DMM
+    class: epcomms.equipment.multimeter.TektronixDMM4050
+    arguments:
+      host: "192.168.0.136"
+      port: 3490
   # - uid: terranova_962a
   #   name: Terranova 962A Vacuum Controller
   #   class: epcomms.equipment.vacuumcontroller.Terranova962A
@@ -124,25 +124,26 @@ translators:
     class: PollingTranslator
     physical_instrument_uid: keysight_dmm
     getter_function: measure_voltage_dc
+    polling_interval: 2.0
     entities:
       - virtual_instrument:
           uid: keysight_dmm_voltage
-          name: Measured Voltage
+          name: Keysight Measured Voltage
           unit: VDC
           description: Measured voltage by the Keysight Multimeter
-  # - metadata:
-  #     uid: tektronix_4050_voltage_translator
-  #     name: Tektronix 4050 Voltage Translator
-  #     description: Translator for Tektronix 4050 DMM
-  #   class: PollingTranslator
-  #   physical_instrument_uid: tektronix_4050
-  #   getter_function: measure_voltage_dc
-  #   entities:
-  #     - virtual_instrument:
-  #         uid: tektronix_4050_voltage
-  #         name: Measured Voltage
-  #         unit: VDC
-  #         description: Measured voltage by the Tektronix 4050 DMM
+  - metadata:
+      uid: tektronix_4050_voltage_translator
+      name: Tektronix 4050 Voltage Translator
+      description: Translator for Tektronix 4050 DMM
+    class: PollingTranslator
+    physical_instrument_uid: tektronix_4050
+    getter_function: measure_voltage_dc
+    entities:
+      - virtual_instrument:
+          uid: tektronix_4050_voltage
+          name: Measured Voltage  
+          unit: VDC
+          description: Measured voltage by the Tektronix 4050 DMM
   # - metadata:
   #     uid: terranova_962a_pressure_translator
   #     name: Terranova 962A Pressure Translator
