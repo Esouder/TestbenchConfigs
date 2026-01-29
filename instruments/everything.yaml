@@ -12,11 +12,11 @@ physical_instruments:
     class: epcomms.equipment.powersupply.KeysightEDU36311A
     arguments:
       resource_name: "USB0::10893::36609::CN63070208::0::INSTR"
-  # - uid: alicat_eip_physical
-  #   name: Alicat EIP Mass Flow Controller
-  #   class: epcomms.equipment.flowcontroller.AlicatEIP
-  #   arguments:
-  #     routing_path: "192.168.0.172"
+  - uid: alicat_eip_physical
+    name: Alicat EIP Mass Flow Controller
+    class: epcomms.equipment.flowcontroller.AlicatEIP
+    arguments:
+      routing_path: "192.168.0.172"
   # - uid: fluke45
   #   name: Fluke 45 Multimeter
   #   class: epcomms.equipment.multimeter.Fluke45
@@ -91,19 +91,19 @@ translators:
           name: Channel 3 Output Voltage
           unit: V
           description: Measured output voltage of the Keysight EDU36311A Power Supply Channel 3
-  # - metadata:
-  #     uid: flow_controller_translator
-  #     name: Flow Controller Translator
-  #     description: Translator for Alicat EIP Mass Flow Controller
-  #   class: PollingTranslator
-  #   physical_instrument_uid: alicat_eip_physical
-  #   getter_function: get_mass_flow
-  #   entities:
-  #     - virtual_instrument:
-  #         uid: alicat_eip_flow_rate
-  #         name: Flow Rate
-  #         unit: sccm
-  #         description: Measured flow rate of the Alicat EIP Mass Flow Controller
+  - metadata:
+      uid: flow_controller_translator
+      name: Flow Controller Translator
+      description: Translator for Alicat EIP Mass Flow Controller
+    class: PollingTranslator
+    physical_instrument_uid: alicat_eip_physical
+    getter_function: get_mass_flow
+    entities:
+      - virtual_instrument:
+          uid: alicat_eip_flow_rate
+          name: Flow Rate
+          unit: sccm
+          description: Measured flow rate of the Alicat EIP Mass Flow Controller
   # - metadata:
   #     uid: fluke45_voltage_translator
   #     name: Fluke 45 Voltage Translator
