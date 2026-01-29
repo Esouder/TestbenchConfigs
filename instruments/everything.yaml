@@ -7,37 +7,37 @@ physical_instruments:
     class: epcomms.equipment.powersupply.HP6030A
     arguments:
       resource_name: "USB0::1003::8293::HEWLETT-PACKARD_6030A_0_sA.00.05pA.01.01::0::INSTR"
-  - uid: keysight_edu_36311a_physical
-    name: Keysight EDU36311A Power Supply
-    class: epcomms.equipment.powersupply.KeysightEDU36311A
-    arguments:
-      resource_name: "USB0::10893::36609::CN63070208::0::INSTR"
-  - uid: alicat_eip_physical
-    name: Alicat EIP Mass Flow Controller
-    class: epcomms.equipment.flowcontroller.AlicatEIP
-    arguments:
-      routing_path: "192.168.0.172"
-  - uid: fluke45
-    name: Fluke 45 Multimeter
-    class: epcomms.equipment.multimeter.Fluke45
-    arguments:
-      device_location: "/dev/ttyUSB1"
-  - uid: keysight_dmm
-    name: Keysight Multimeter
-    class: epcomms.equipment.multimeter.KeysightEDU34450A
-    arguments:
-      resource_name: "USB0::10893::36353::CN62350039::0::INSTR"
-  - uid: tektronix_4050
-    name: Tektronix 4050 DMM
-    class: epcomms.equipment.multimeter.TektronixDMM4050
-    arguments:
-      host: "192.168.0.136"
-      port: 3490
-  - uid: terranova_962a
-    name: Terranova 962A Vacuum Controller
-    class: epcomms.equipment.vacuumcontroller.Terranova962A
-    arguments:
-      device_location: "/dev/ttyUSB2"
+  # - uid: keysight_edu_36311a_physical
+  #   name: Keysight EDU36311A Power Supply
+  #   class: epcomms.equipment.powersupply.KeysightEDU36311A
+  #   arguments:
+  #     resource_name: "USB0::10893::36609::CN63070208::0::INSTR"
+  # - uid: alicat_eip_physical
+  #   name: Alicat EIP Mass Flow Controller
+  #   class: epcomms.equipment.flowcontroller.AlicatEIP
+  #   arguments:
+  #     routing_path: "192.168.0.172"
+  # - uid: fluke45
+  #   name: Fluke 45 Multimeter
+  #   class: epcomms.equipment.multimeter.Fluke45
+  #   arguments:
+  #     device_location: "/dev/ttyUSB1"
+  # - uid: keysight_dmm
+  #   name: Keysight Multimeter
+  #   class: epcomms.equipment.multimeter.KeysightEDU34450A
+  #   arguments:
+  #     resource_name: "USB0::10893::36353::CN62350039::0::INSTR"
+  # - uid: tektronix_4050
+  #   name: Tektronix 4050 DMM
+  #   class: epcomms.equipment.multimeter.TektronixDMM4050
+  #   arguments:
+  #     host: "192.168.0.136"
+  #     port: 3490
+  # - uid: terranova_962a
+  #   name: Terranova 962A Vacuum Controller
+  #   class: epcomms.equipment.vacuumcontroller.Terranova962A
+  #   arguments:
+  #     device_location: "/dev/ttyUSB2"
 
 translators:
   - metadata:
@@ -53,94 +53,94 @@ translators:
           name: Output Voltage
           unit: V
           description: Measured output voltage of the HP 6030A Power Supply
-  - metadata:
-      uid: hp_6030_a_current_translator
-      name: HP 6030A Current Translator
-      description: Translator for HP 6030A Power Supply
-    class: PollingTranslator
-    physical_instrument_uid: hp_6030_a_physical
-    getter_function: measure_current
-    entities:
-      - virtual_instrument:
-          uid: hp_6030_a_current
-          name: Output Current
-          unit: A
-          description: Measured output current of the HP 6030A Power Supply
-  - metadata:
-      uid: keysight_edu_36311a_voltage_translator
-      name: Keysight EDU36311A Voltage Translator
-      description: Translator for Keysight EDU36311A Power Supply
-    class: PollingTranslator
-    physical_instrument_uid: keysight_edu_36311a_physical
-    getter_function: measure_voltage
-    entities:
-      - virtual_instrument:
-          uid: keysight_edu_36311a_voltage
-          name: Output Voltage
-          unit: V
-          description: Measured output voltage of the Keysight EDU36311A Power Supply
-  - metadata:
-      uid: flow_controller_translator
-      name: Flow Controller Translator
-      description: Translator for Alicat EIP Mass Flow Controller
-    class: PollingTranslator
-    physical_instrument_uid: alicat_eip_physical
-    getter_function: get_mass_flow
-    entities:
-      - virtual_instrument:
-          uid: alicat_eip_flow_rate
-          name: Flow Rate
-          unit: sccm
-          description: Measured flow rate of the Alicat EIP Mass Flow Controller
-  - metadata:
-      uid: fluke45_voltage_translator
-      name: Fluke 45 Voltage Translator
-      description: Translator for Fluke 45 Multimeter
-    class: PollingTranslator
-    physical_instrument_uid: fluke45
-    getter_function: measure_voltage_dc
-    entities:
-      - virtual_instrument:
-          uid: fluke45_voltage
-          name: Measured Voltage
-          unit: VDC
-          description: Measured voltage by the Fluke 45 Multimeter
-  - metadata:
-      uid: keysight_dmm_voltage_translator
-      name: Keysight DMM Voltage Translator
-      description: Translator for Keysight Multimeter
-    class: PollingTranslator
-    physical_instrument_uid: keysight_dmm
-    getter_function: measure_voltage_dc
-    entities:
-      - virtual_instrument:
-          uid: keysight_dmm_voltage
-          name: Measured Voltage
-          unit: VDC
-          description: Measured voltage by the Keysight Multimeter
-  - metadata:
-      uid: tektronix_4050_voltage_translator
-      name: Tektronix 4050 Voltage Translator
-      description: Translator for Tektronix 4050 DMM
-    class: PollingTranslator
-    physical_instrument_uid: tektronix_4050
-    getter_function: measure_voltage_dc
-    entities:
-      - virtual_instrument:
-          uid: tektronix_4050_voltage
-          name: Measured Voltage
-          unit: VDC
-          description: Measured voltage by the Tektronix 4050 DMM
-  - metadata:
-      uid: terranova_962a_pressure_translator
-      name: Terranova 962A Pressure Translator
-      description: Translator for Terranova 962A Vacuum Controller
-    class: PollingTranslator
-    physical_instrument_uid: terranova_962a
-    getter_function: get_pressure_gauge_1
-    entities:
-      - virtual_instrument:
-          uid: terranova_962a_pressure
-          name: Measured Pressure
-          unit: Torr
-          description: Measured pressure by the Terranova 962A Vacuum Controller
+  # - metadata:
+  #     uid: hp_6030_a_current_translator
+  #     name: HP 6030A Current Translator
+  #     description: Translator for HP 6030A Power Supply
+  #   class: PollingTranslator
+  #   physical_instrument_uid: hp_6030_a_physical
+  #   getter_function: measure_current
+  #   entities:
+  #     - virtual_instrument:
+  #         uid: hp_6030_a_current
+  #         name: Output Current
+  #         unit: A
+  #         description: Measured output current of the HP 6030A Power Supply
+  # - metadata:
+  #     uid: keysight_edu_36311a_voltage_translator
+  #     name: Keysight EDU36311A Voltage Translator
+  #     description: Translator for Keysight EDU36311A Power Supply
+  #   class: PollingTranslator
+  #   physical_instrument_uid: keysight_edu_36311a_physical
+  #   getter_function: measure_voltage
+  #   entities:
+  #     - virtual_instrument:
+  #         uid: keysight_edu_36311a_voltage
+  #         name: Output Voltage
+  #         unit: V
+  #         description: Measured output voltage of the Keysight EDU36311A Power Supply
+  # - metadata:
+  #     uid: flow_controller_translator
+  #     name: Flow Controller Translator
+  #     description: Translator for Alicat EIP Mass Flow Controller
+  #   class: PollingTranslator
+  #   physical_instrument_uid: alicat_eip_physical
+  #   getter_function: get_mass_flow
+  #   entities:
+  #     - virtual_instrument:
+  #         uid: alicat_eip_flow_rate
+  #         name: Flow Rate
+  #         unit: sccm
+  #         description: Measured flow rate of the Alicat EIP Mass Flow Controller
+  # - metadata:
+  #     uid: fluke45_voltage_translator
+  #     name: Fluke 45 Voltage Translator
+  #     description: Translator for Fluke 45 Multimeter
+  #   class: PollingTranslator
+  #   physical_instrument_uid: fluke45
+  #   getter_function: measure_voltage_dc
+  #   entities:
+  #     - virtual_instrument:
+  #         uid: fluke45_voltage
+  #         name: Measured Voltage
+  #         unit: VDC
+  #         description: Measured voltage by the Fluke 45 Multimeter
+  # - metadata:
+  #     uid: keysight_dmm_voltage_translator
+  #     name: Keysight DMM Voltage Translator
+  #     description: Translator for Keysight Multimeter
+  #   class: PollingTranslator
+  #   physical_instrument_uid: keysight_dmm
+  #   getter_function: measure_voltage_dc
+  #   entities:
+  #     - virtual_instrument:
+  #         uid: keysight_dmm_voltage
+  #         name: Measured Voltage
+  #         unit: VDC
+  #         description: Measured voltage by the Keysight Multimeter
+  # - metadata:
+  #     uid: tektronix_4050_voltage_translator
+  #     name: Tektronix 4050 Voltage Translator
+  #     description: Translator for Tektronix 4050 DMM
+  #   class: PollingTranslator
+  #   physical_instrument_uid: tektronix_4050
+  #   getter_function: measure_voltage_dc
+  #   entities:
+  #     - virtual_instrument:
+  #         uid: tektronix_4050_voltage
+  #         name: Measured Voltage
+  #         unit: VDC
+  #         description: Measured voltage by the Tektronix 4050 DMM
+  # - metadata:
+  #     uid: terranova_962a_pressure_translator
+  #     name: Terranova 962A Pressure Translator
+  #     description: Translator for Terranova 962A Vacuum Controller
+  #   class: PollingTranslator
+  #   physical_instrument_uid: terranova_962a
+  #   getter_function: get_pressure_gauge_1
+  #   entities:
+  #     - virtual_instrument:
+  #         uid: terranova_962a_pressure
+  #         name: Measured Pressure
+  #         unit: Torr
+  #         description: Measured pressure by the Terranova 962A Vacuum Controller
