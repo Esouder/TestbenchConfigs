@@ -21,7 +21,7 @@ physical_instruments:
     name: Fluke 45 Multimeter
     class: epcomms.equipment.multimeter.Fluke45
     arguments:
-      device_location: "/dev/ttyUSB1"
+      device_location: "/dev/ttyUSB2"
   # - uid: keysight_dmm
   #   name: Keysight Multimeter
   #   class: epcomms.equipment.multimeter.KeysightEDU34450A
@@ -37,7 +37,7 @@ physical_instruments:
   #   name: Terranova 962A Vacuum Controller
   #   class: epcomms.equipment.vacuumcontroller.Terranova962A
   #   arguments:
-  #     device_location: "/dev/ttyUSB2"
+  #     device_location: "/dev/ttyUSB1"
 
 translators:
   - metadata:
