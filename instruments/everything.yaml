@@ -22,11 +22,11 @@ physical_instruments:
     class: epcomms.equipment.multimeter.Fluke45
     arguments:
       device_location: "/dev/ttyUSB2"
-  # - uid: keysight_dmm
-  #   name: Keysight Multimeter
-  #   class: epcomms.equipment.multimeter.KeysightEDU34450A
-  #   arguments:
-  #     resource_name: "USB0::10893::36353::CN62350039::0::INSTR"
+  - uid: keysight_dmm
+    name: Keysight Multimeter
+    class: epcomms.equipment.multimeter.KeysightEDU34450A
+    arguments:
+      resource_name: "USB0::10893::36353::CN62350039::0::INSTR"
   # - uid: tektronix_4050
   #   name: Tektronix 4050 DMM
   #   class: epcomms.equipment.multimeter.TektronixDMM4050
@@ -91,45 +91,45 @@ translators:
           name: Channel 3 Output Voltage
           unit: V
           description: Measured output voltage of the Keysight EDU36311A Power Supply Channel 3
-  - metadata:
-      uid: flow_controller_translator
-      name: Flow Controller Translator
-      description: Translator for Alicat EIP Mass Flow Controller
-    class: PollingTranslator
-    physical_instrument_uid: alicat_eip_physical
-    getter_function: get_mass_flow
-    entities:
-      - virtual_instrument:
-          uid: alicat_eip_flow_rate
-          name: Flow Rate
-          unit: sccm
-          description: Measured flow rate of the Alicat EIP Mass Flow Controller
-  - metadata:
-      uid: fluke45_voltage_translator
-      name: Fluke 45 Voltage Translator
-      description: Translator for Fluke 45 Multimeter
-    class: PollingTranslator
-    physical_instrument_uid: fluke45
-    getter_function: measure_voltage_dc
-    entities:
-      - virtual_instrument:
-          uid: fluke45_voltage
-          name: Measured Voltage
-          unit: VDC
-          description: Measured voltage by the Fluke 45 Multimeter
   # - metadata:
-  #     uid: keysight_dmm_voltage_translator
-  #     name: Keysight DMM Voltage Translator
-  #     description: Translator for Keysight Multimeter
+  #     uid: flow_controller_translator
+  #     name: Flow Controller Translator
+  #     description: Translator for Alicat EIP Mass Flow Controller
   #   class: PollingTranslator
-  #   physical_instrument_uid: keysight_dmm
+  #   physical_instrument_uid: alicat_eip_physical
+  #   getter_function: get_mass_flow
+  #   entities:
+  #     - virtual_instrument:
+  #         uid: alicat_eip_flow_rate
+  #         name: Flow Rate
+  #         unit: sccm
+  #         description: Measured flow rate of the Alicat EIP Mass Flow Controller
+  # - metadata:
+  #     uid: fluke45_voltage_translator
+  #     name: Fluke 45 Voltage Translator
+  #     description: Translator for Fluke 45 Multimeter
+  #   class: PollingTranslator
+  #   physical_instrument_uid: fluke45
   #   getter_function: measure_voltage_dc
   #   entities:
   #     - virtual_instrument:
-  #         uid: keysight_dmm_voltage
+  #         uid: fluke45_voltage
   #         name: Measured Voltage
   #         unit: VDC
-  #         description: Measured voltage by the Keysight Multimeter
+  #         description: Measured voltage by the Fluke 45 Multimeter
+  - metadata:
+      uid: keysight_dmm_voltage_translator
+      name: Keysight DMM Voltage Translator
+      description: Translator for Keysight Multimeter
+    class: PollingTranslator
+    physical_instrument_uid: keysight_dmm
+    getter_function: measure_voltage_dc
+    entities:
+      - virtual_instrument:
+          uid: keysight_dmm_voltage
+          name: Measured Voltage
+          unit: VDC
+          description: Measured voltage by the Keysight Multimeter
   # - metadata:
   #     uid: tektronix_4050_voltage_translator
   #     name: Tektronix 4050 Voltage Translator
