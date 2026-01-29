@@ -73,7 +73,7 @@ translators:
     class: PollingTranslator
     physical_instrument_uid: keysight_edu_36311a_physical
     getter_function: measure_voltage
-    getter_function_arguments:
+    getter_arguments:
       channel: [1,2,3]
     entities:
       - virtual_instrument:
