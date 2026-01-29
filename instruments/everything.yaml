@@ -73,12 +73,24 @@ translators:
     class: PollingTranslator
     physical_instrument_uid: keysight_edu_36311a_physical
     getter_function: measure_voltage
-  #   entities:
-  #     - virtual_instrument:
-  #         uid: keysight_edu_36311a_voltage
-  #         name: Output Voltage
-  #         unit: V
-  #         description: Measured output voltage of the Keysight EDU36311A Power Supply
+    getter_function_arguments:
+      channel: [1,2,3]
+    entities:
+      - virtual_instrument:
+          uid: keysight_edu_36311a_voltage
+          name: Channel 1Output Voltage
+          unit: V
+          description: Measured output voltage of the Keysight EDU36311A Power Supply Channel 1
+      - virtual_instrument:
+          uid: keysight_edu_36311a_voltage_2
+          name: Channel 2 Output Voltage
+          unit: V
+          description: Measured output voltage of the Keysight EDU36311A Power Supply Channel 2
+      - virtual_instrument:
+          uid: keysight_edu_36311a_voltage_3
+          name: Channel 3 Output Voltage
+          unit: V
+          description: Measured output voltage of the Keysight EDU36311A Power Supply Channel 3
   # - metadata:
   #     uid: flow_controller_translator
   #     name: Flow Controller Translator
