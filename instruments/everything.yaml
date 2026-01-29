@@ -17,11 +17,11 @@ physical_instruments:
     class: epcomms.equipment.flowcontroller.AlicatEIP
     arguments:
       routing_path: "192.168.0.172"
-  # - uid: fluke45
-  #   name: Fluke 45 Multimeter
-  #   class: epcomms.equipment.multimeter.Fluke45
-  #   arguments:
-  #     device_location: "/dev/ttyUSB1"
+  - uid: fluke45
+    name: Fluke 45 Multimeter
+    class: epcomms.equipment.multimeter.Fluke45
+    arguments:
+      device_location: "/dev/ttyUSB1"
   # - uid: keysight_dmm
   #   name: Keysight Multimeter
   #   class: epcomms.equipment.multimeter.KeysightEDU34450A
@@ -104,19 +104,19 @@ translators:
           name: Flow Rate
           unit: sccm
           description: Measured flow rate of the Alicat EIP Mass Flow Controller
-  # - metadata:
-  #     uid: fluke45_voltage_translator
-  #     name: Fluke 45 Voltage Translator
-  #     description: Translator for Fluke 45 Multimeter
-  #   class: PollingTranslator
-  #   physical_instrument_uid: fluke45
-  #   getter_function: measure_voltage_dc
-  #   entities:
-  #     - virtual_instrument:
-  #         uid: fluke45_voltage
-  #         name: Measured Voltage
-  #         unit: VDC
-  #         description: Measured voltage by the Fluke 45 Multimeter
+  - metadata:
+      uid: fluke45_voltage_translator
+      name: Fluke 45 Voltage Translator
+      description: Translator for Fluke 45 Multimeter
+    class: PollingTranslator
+    physical_instrument_uid: fluke45
+    getter_function: measure_voltage_dc
+    entities:
+      - virtual_instrument:
+          uid: fluke45_voltage
+          name: Measured Voltage
+          unit: VDC
+          description: Measured voltage by the Fluke 45 Multimeter
   # - metadata:
   #     uid: keysight_dmm_voltage_translator
   #     name: Keysight DMM Voltage Translator
