@@ -6,12 +6,12 @@ physical_instruments:
     name: HP 6030A Power Supply
     class: epcomms.equipment.powersupply.HP6030A
     arguments:
-    resource_name: "USB0::1003::8293::HEWLETT-PACKARD_6030A_0_sA.00.05pA.01.01::0::INSTR"
+      resource_name: "USB0::1003::8293::HEWLETT-PACKARD_6030A_0_sA.00.05pA.01.01::0::INSTR"
   - uid: keysight_edu_36311a_physical
     name: Keysight EDU36311A Power Supply
     class: epcomms.equipment.powersupply.KeysightEDU36311A
     arguments:
-    resource_name: "USB0::10893::36609::CN63070208::0::INSTR"
+      resource_name: "USB0::10893::36609::CN63070208::0::INSTR"
   - uid: alicat_eip_physical
     name: Alicat EIP Mass Flow Controller
     class: epcomms.equipment.massflowcontroller.AlicatEIP
@@ -22,7 +22,7 @@ physical_instruments:
     class: epcomms.equipment.multimeter.Fluke45
     arguments:
       device_location: "/dev/ttyUSB1"
-  - keysight_dmm:
+  - uid: keysight_dmm
     name: Keysight Multimeter
     class: epcomms.equipment.multimeter.KeysightEDU34450A
     arguments:
@@ -38,11 +38,6 @@ physical_instruments:
     class: epcomms.equipment.vacuumcontroller.Terranova962A
     arguments:
       device_location: "/dev/ttyUSB2"
-  - uid: inficon
-    name: Inficon BGP400
-    class: epcomms.equipment.vacuumcontroller.InficonBGP400
-    arguments:
-      device_location: "/dev/ttyUSB0"
 
 translators:
   - metadata:
