@@ -14,7 +14,7 @@ physical_instruments:
       resource_name: "USB0::10893::36609::CN63070208::0::INSTR"
   - uid: alicat_eip_physical
     name: Alicat EIP Mass Flow Controller
-    class: epcomms.equipment.massflowcontroller.AlicatEIP
+    class: epcomms.equipment.flowcontroller.AlicatEIP
     arguments:
       routing_path: "192.168.0.172"
   - uid: fluke45
