@@ -1,0 +1,3 @@
+publishers:
+  LocalArchivePublisher:
+    storage_path: ./archives

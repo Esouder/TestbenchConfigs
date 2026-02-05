@@ -1,4 +1,4 @@
-name: test_config
+name: Test Configuration File
 description: A test configuration file.
 
 physical_instruments:
